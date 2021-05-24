@@ -1,0 +1,55 @@
+PODS:
+  - Alamofire (5.4.3)
+  - HandyJSON (5.0.2)
+  - Kingfisher (6.3.0)
+  - MJRefresh (3.6.1)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - Realm (10.7.6):
+    - Realm/Headers (= 10.7.6)
+  - Realm/Headers (10.7.6)
+  - RealmSwift (10.7.6):
+    - Realm (= 10.7.6)
+  - RxSwift (5.1.2)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - HandyJSON
+  - Kingfisher
+  - MJRefresh
+  - Moya
+  - Moya/RxSwift
+  - RealmSwift
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - HandyJSON
+    - Kingfisher
+    - MJRefresh
+    - Moya
+    - Realm
+    - RealmSwift
+    - RxSwift
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Realm: ed860452717c8db8f4bf832b6807f7f2ce708839
+  RealmSwift: e31c4ddbcc42ac879313d656b86f9ca539f6f4f4
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: e5d46f0f0aec44f3360be5be8d78a09be1cecd8d
+
+COCOAPODS: 1.10.0
