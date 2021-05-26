@@ -11,7 +11,6 @@ import RealmSwift
 
 @available(iOS 11.0, *)
 class HomeViewController: BaseViewController {
-    
     var searchC: UISearchController!
     @IBOutlet var tableView: UITableView!
     var topItemArry = [entryCacheModel](){
@@ -75,7 +74,6 @@ extension HomeViewController{
             }
             return self.topItemArry.count > 0 ? false :true
         }
-        
         return true
     }
 }
@@ -86,7 +84,7 @@ extension HomeViewController: UISearchResultsUpdating {
               if searchController.searchBar.text! == ""{
                   return true
                 }
-                return (entryCacheModel.itemTitle.contains(searchController.searchBar.text!) || entryCacheModel.itemCategory.contains(searchController.searchBar.text!) || entryCacheModel.itemComments.contains(searchController.searchBar.text!))
+                return (entryCacheModel.itemTitle.contains(searchController.searchBar.text!) || entryCacheModel.summary.contains(searchController.searchBar.text!) || entryCacheModel.rights.contains(searchController.searchBar.text!))
             }
         }
 }
@@ -153,16 +151,21 @@ extension HomeViewController{
             realm.deleteAll()
         }
         var tempModelArry  = [entryCacheModel]()
-        for model in tempEntryArry{
+        for i in 0..<tempEntryArry.count {
+            let model = tempEntryArry[i]
             try! realm.write({
             let tempCacheModel = entryCacheModel()
                 tempCacheModel.itemTitle = (model.title?.label)!
                 tempCacheModel.itemCategory = (model.category?.attributes?.label)!
                 tempCacheModel.itemImage = (model.image?.last?.label)!
-                tempCacheModel.itemCount = 1
-                tempCacheModel.starViewScore = 1
-                tempCacheModel.itemComments = "10"
-                realm.add(tempCacheModel, update: .error)
+                tempCacheModel.itemCount = i
+                tempCacheModel.starViewScore = 0
+                tempCacheModel.itemComments = ""
+                tempCacheModel.summary = (model.summary?.label)!
+                tempCacheModel.rights = model.rights?.label ?? ""
+                tempCacheModel.itemId = (model.id?.attributes?.id)!
+                tempCacheModel.updateBool = false
+                realm.add(tempCacheModel,update: .error)
                 tempModelArry.append(tempCacheModel)
             })
         }

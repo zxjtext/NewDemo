@@ -39,6 +39,22 @@ class ViewModel: NSObject {
             
         }.disposed(by: dispose)
     }
+    
+    
+    func fetchLookUpData(id:String,networkResultClosure: @escaping NetworkResultClosure){
+        _ =  EYRequest.request.getLookUp(id:id).subscribe(onSuccess: { (result) in
+            switch result{
+            case.regular(let data):
+                networkResultClosure(data)
+            case .failing( _):
+                break
+            }
+        }) { (error) in
+            
+        }.disposed(by: dispose)
+    }
+    
+    
 }
 
 

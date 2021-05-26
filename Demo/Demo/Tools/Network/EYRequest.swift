@@ -18,10 +18,11 @@ let requestTimeoutClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<
             request.timeoutInterval = 60
             //request.addValue("zhangsan", forHTTPHeaderField: "user")
             //request.addValue("ahsfksjfhskdfhsjdkf", forHTTPHeaderField: "cookie")
-        }else{
-            //.....
+        }else if(request.url?.absoluteString.contains(EYUrls.topfreeapplications.lowercased()) ?? false){
             let url =  request.url?.absoluteString.replacingOccurrences(of: "?", with: "")
             request.url = URL(string: url!)
+        }else{
+            //.....
             request.timeoutInterval = 60
         }
         done(.success(request))
@@ -34,12 +35,12 @@ let networkPlugin = NetworkActivityPlugin {(state,target) in
     switch state {
     case .began:
         DispatchQueue.main.async {
-            //SVProgressHUD.show()
+           // SVProgressHUD.show()
         }
         
     case .ended:
         DispatchQueue.main.async {
-            //SVProgressHUD.dismiss()
+           // SVProgressHUD.dismiss()
         }
     }
 }
@@ -80,6 +81,23 @@ class EYRequest: NSObject {
                     return  Single.just(Result.regular(result.feed ?? topGrossingApplicationsModelArray()))
                 }else{
                     return Single.just(Result<topGrossingApplicationsModelArray>.failing(RxMoyaError.reason(result.message ?? "")))
+                }
+        }
+        .catchError({ error in
+            return Single.just(Result.failing(RxMoyaError.reason(ErrorTips.netWorkError.rawValue)))
+        })
+    }
+    
+    
+    public func getLookUp(id:String) ->  Single<Result<[lookUpModelArray]>>{
+        return provider.rx.request(.lookup(id: id))
+            .filterSuccessfulStatusCodes()
+            .mapModel()
+            .flatMap {(result:EYResponse<[lookUpModelArray]>) in
+                if result.isSuccess{
+                    return  Single.just(Result.regular(result.results ?? [lookUpModelArray]()))
+                }else{
+                    return Single.just(Result<[lookUpModelArray]>.failing(RxMoyaError.reason(result.message ?? "")))
                 }
         }
         .catchError({ error in

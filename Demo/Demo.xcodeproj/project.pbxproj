@@ -29,6 +29,8 @@
 		009A7AF72654186300FDF5F3 /* UIImageView+urlQueryAllowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009A7AF62654186300FDF5F3 /* UIImageView+urlQueryAllowed.swift */; };
 		009A7B37265575D800FDF5F3 /* StarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7B33265575D800FDF5F3 /* StarsView.m */; };
 		009A7B38265575D800FDF5F3 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7B34265575D800FDF5F3 /* StarView.m */; };
+		00A77ED6265E065C00510C06 /* ImageLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A77ED4265E065C00510C06 /* ImageLoadOperation.swift */; };
+		00A77ED7265E065C00510C06 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A77ED5265E065C00510C06 /* Item.swift */; };
 		00ACA41326535A2B0005B70D /* appItemHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACA41226535A2B0005B70D /* appItemHeadView.swift */; };
 		00ACA41726535A510005B70D /* appItemHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ACA41626535A510005B70D /* appItemHeadView.xib */; };
 		00ACA41B26535BA10005B70D /* appItemHeadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACA41926535BA10005B70D /* appItemHeadCollectionViewCell.swift */; };
@@ -66,6 +68,8 @@
 		009A7B34265575D800FDF5F3 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
 		009A7B35265575D800FDF5F3 /* StarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarsView.h; sourceTree = "<group>"; };
 		009A7B36265575D800FDF5F3 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		00A77ED4265E065C00510C06 /* ImageLoadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadOperation.swift; sourceTree = "<group>"; };
+		00A77ED5265E065C00510C06 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		00ACA41226535A2B0005B70D /* appItemHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appItemHeadView.swift; sourceTree = "<group>"; };
 		00ACA41626535A510005B70D /* appItemHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = appItemHeadView.xib; sourceTree = "<group>"; };
 		00ACA41926535BA10005B70D /* appItemHeadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appItemHeadCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		007FB8872652C3700061B899 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				00A77ED3265E065C00510C06 /* appItemScoreAndComments */,
 				009A7B32265575D800FDF5F3 /* starView */,
 				009A7AF52654186300FDF5F3 /* ImageTool */,
 				007FB8882652C3700061B899 /* Network */,
@@ -252,6 +257,15 @@
 				009A7B34265575D800FDF5F3 /* StarView.m */,
 			);
 			path = starView;
+			sourceTree = "<group>";
+		};
+		00A77ED3265E065C00510C06 /* appItemScoreAndComments */ = {
+			isa = PBXGroup;
+			children = (
+				00A77ED4265E065C00510C06 /* ImageLoadOperation.swift */,
+				00A77ED5265E065C00510C06 /* Item.swift */,
+			);
+			path = appItemScoreAndComments;
 			sourceTree = "<group>";
 		};
 		00ACA41126535A0E0005B70D /* appItemHeadView */ = {
@@ -415,11 +429,13 @@
 				007FB8B62652C8300061B899 /* appItemTableViewCell.swift in Sources */,
 				009A7AF72654186300FDF5F3 /* UIImageView+urlQueryAllowed.swift in Sources */,
 				007FB86E2652BF7F0061B899 /* EYBaseNavigationController.swift in Sources */,
+				00A77ED7265E065C00510C06 /* Item.swift in Sources */,
 				007FB86C2652BF7F0061B899 /* BaseViewController.swift in Sources */,
 				007FB8942652C3700061B899 /* EYNetError.swift in Sources */,
 				007FB8972652C3700061B899 /* EYUrls.swift in Sources */,
 				007FB8982652C3700061B899 /* EYParams.swift in Sources */,
 				009A7B37265575D800FDF5F3 /* StarsView.m in Sources */,
+				00A77ED6265E065C00510C06 /* ImageLoadOperation.swift in Sources */,
 				00ACA420265365D80005B70D /* appItemRecommendHeadView.swift in Sources */,
 				007FB8962652C3700061B899 /* EYResponse.swift in Sources */,
 				007FB8992652C3700061B899 /* BaseModel.swift in Sources */,

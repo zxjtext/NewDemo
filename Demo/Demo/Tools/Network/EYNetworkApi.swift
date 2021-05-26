@@ -11,7 +11,7 @@ import Moya
 enum EYNetworkApi {
     case topGrossingApplications
     case topfreeapplications(limit:String)
-    
+    case lookup(id:String)
 }
 
 extension EYNetworkApi:TargetType{
@@ -26,6 +26,8 @@ extension EYNetworkApi:TargetType{
             return EYUrls.topGrossingApplications
         case .topfreeapplications(_):
             return EYUrls.topfreeapplications
+        case .lookup(_):
+            return EYUrls.lookup
         default:
             return ""
         }
@@ -36,6 +38,8 @@ extension EYNetworkApi:TargetType{
         case .topGrossingApplications:
             return .get
         case .topfreeapplications(_):
+            return .get
+        case .lookup(_):
             return .get
         default:
             return .get
@@ -53,6 +57,9 @@ extension EYNetworkApi:TargetType{
             return .requestParameters(parameters: params.allParams, encoding: URLEncoding.default)
         case .topfreeapplications(let limit):
             let params = EYParams.init(params: ["limit" : limit])
+            return .requestParameters(parameters: params.allParams, encoding: URLEncoding.default)
+        case .lookup(let id):
+            let params = EYParams.init(params: ["id" : id])
             return .requestParameters(parameters: params.allParams, encoding: URLEncoding.default)
         default:
             return .requestPlain

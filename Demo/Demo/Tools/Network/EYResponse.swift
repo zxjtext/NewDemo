@@ -22,6 +22,7 @@ struct EYResponse<T:HandyJSON>:HandyJSON{
     var code:Int = 0
     var message:String?
     var feed: T?
+    var results: T?
     var isSuccess: Bool {
          return code == 0
      }
@@ -33,14 +34,8 @@ extension Response {
         do {
             
             if var jsonString = String(data: data, encoding: String.Encoding.utf8){
-                
                 jsonString = jsonString.replacingOccurrences(of: "im:", with: "")
-                
-                let dictData = stringValueDic(jsonString)
-                
-              
-              
-                
+                jsonString = jsonString.replacingOccurrences(of: "\n", with: "")
                 if let obj = JSONDeserializer<EYResponse<T>>.deserializeFrom(json: jsonString) {
                     
                     return obj

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class appItemHeadView: UIView {
     @IBOutlet var appItemCollectionView: UICollectionView!
     var topItemArry:[entryModelArray]?

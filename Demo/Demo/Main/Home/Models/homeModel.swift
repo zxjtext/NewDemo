@@ -16,8 +16,15 @@ class entryCacheModel: Object{
     @objc dynamic var itemCategory = ""
     @objc dynamic var itemImage = ""
     @objc dynamic var itemCount = 0
-    @objc dynamic var starViewScore  = 0
+    @objc dynamic var starViewScore  = 0.0
     @objc dynamic var itemComments  = ""
+    @objc dynamic var summary  = ""
+    @objc dynamic var rights  = ""
+    @objc dynamic var itemId  = ""
+    @objc dynamic var updateBool  = false
+    override class func primaryKey() -> String? {
+            return "itemCount"
+    }
     
 }
 
@@ -40,6 +47,16 @@ class entryModelArray:BaseModel{
     var  name : entryNameModelTitle?
     var  title : entryModelTitle?
     var  category : entryCategoryAttributesModel?
+    var  summary : entrySummaryAttributesModel?
+    var  rights : entryRightsAttributesModel?
+    var  id : AttributesIdItemModel?
+    
+}
+class entryRightsAttributesModel:BaseModel{
+    var label : String?
+}
+class entrySummaryAttributesModel:BaseModel{
+    var label : String?
 }
 class entryNameModelTitle:BaseModel{
     var label : String?
@@ -56,6 +73,23 @@ class entryCategoryAttributesModel:BaseModel{
 }
 class entryCategoryAttributesItemModel:BaseModel{
     var label : String?
+}
+
+class AttributesIdItemModel:BaseModel{
+    var attributes : idAttributesItemModel?
+}
+class idAttributesItemModel:BaseModel{
     var id : String?
+    var bundleId : String?
+}
+//lookUp
+class lookUpSuperModelArray :BaseModel{
+    var resultCount : String?
+    var results : [lookUpModelArray]?
+}
+class lookUpModelArray :BaseModel{
+    var averageUserRating : Double = 0.0
+    var description : String?
+    var userRatingCount : String?
 }
 

@@ -9,16 +9,21 @@
 import UIKit
 
 class EYUrls{
-    static let service: String = "https://itunes.apple.com/hk/rss"
+    static let service: String = "https://itunes.apple.com/hk"
     static var domain: String {
         return EYUrls.service
     }
     //topgrossingapplications
     static var topGrossingApplications: String {
-        return "/topgrossingapplications/limit=10/json"
+        return "/rss/topgrossingapplications/limit=10/json"
     }
     //topfreeapplications
     static var topfreeapplications: String {
-        return "/topfreeapplications/"
+        return "/rss/topfreeapplications/"
+    }
+    
+    //lookup
+    static var lookup: String {
+        return "/lookup"
     }
 }
